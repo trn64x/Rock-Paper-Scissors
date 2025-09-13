@@ -74,18 +74,32 @@ for(let i= 0; i < 3; i++){
         credits.innerHTML = storagedData.Credits;
         storagedData.Rounds = null;
         storagedData.Bet = null;
+        gameCount = 1;
+        gameCountValue.innerHTML = `Game #${gameCount}`;
         storagedData.BotWins = 0;
         storagedData.PlayersWins = 0;
     localStorage.setItem("Stats", JSON.stringify(storagedData));
-
+            const buttons = document.querySelectorAll(".option");
+for(let i = 0; i < 3;i++){
+    buttons[i].disabled = true;
+}
+setTimeout(()=>{
     document.querySelector(".chooseUI").style.display = "none";
     document.getElementById("GameCount").style.display = "none";
-        StartGame();
+
+    StartGame();
+    alert(`You have won: ${betWon} dollars!`);
+},2000); // 2 sekundy
+        
         return
     }
         if(BotWins.innerHTML >= storagedData.Rounds){
+
+        let betWon = storagedData.Bet;
         storagedData.Rounds = null;
         storagedData.Bet = null;
+        gameCount = 1;
+        gameCountValue.innerHTML = `Game #${gameCount}`;
         storagedData.BotWins = 0;
         storagedData.PlayersWins = 0;
     localStorage.setItem("Stats", JSON.stringify(storagedData));
@@ -94,9 +108,18 @@ for(let i= 0; i < 3; i++){
             document.getElementById('wynik').innerHTML = "You have lost all your money!"
             return
         }
+        const buttons = document.querySelectorAll(".option");
+for(let i = 0; i < 3;i++){
+    buttons[i].disabled = true;
+}
+setTimeout(()=>{
     document.querySelector(".chooseUI").style.display = "none";
     document.getElementById("GameCount").style.display = "none";
-        StartGame();
+
+    StartGame();
+    alert(`You have lost: ${betWon} dollars...`);
+},2000);
+        
         return
     }
     })
@@ -166,7 +189,10 @@ function StartGame(){
     document.getElementById("FastGuide").style.display="none";
     document.querySelector(".slider").style.display="none";
     document.getElementById("Bet").style.display="none";
-    
+            const buttons = document.querySelectorAll(".option");
+for(let i = 0; i < 3;i++){
+    buttons[i].disabled = false;
+}
     if(storagedData.Rounds != null && storagedData.PlayersWins < storagedData.Rounds && storagedData.BotWins < storagedData.Rounds){
         document.getElementById("GameCount").style.display = "flex";
         document.querySelector(".chooseUI").style.display = "flex";

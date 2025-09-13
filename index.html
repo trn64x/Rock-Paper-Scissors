@@ -17,7 +17,7 @@
         <div class="slider">
             <section style="font-family:'Courier New', Courier, monospace; display:flex;justify-content:space-around; align-items:center; height:50px; width:calc(100% - 10px);  border-radius: 40px 40px 0 0;background:#1a1a1a; padding:5px; color:rgb(233, 233, 233)"><input oninput="slideChange(this.value)" class="range" max="4" min="0" value="0" type="range"> <div id="amount" style="color:aliceblue">1/5</div><button onclick="StartGame()" id="closeSlides" style="display:none"><img src="cross.png"></button></section>
             <div class="SlideItem" style="display:flex !important">
-                <h1>Your first account!</h1>
+                <h1>Your own account!</h1>
                 <p><b>Game is in beta!</b> Your Account is based on LocalStorage so make sure to not change browsers</p>
                 <p>Bottom from your username, you can see how rich you are. Keep gambling, and rock!</p>
             </div>
@@ -42,7 +42,7 @@
             </div>
         </div>
         <!-- Zakład -->
-        <div id="Bet" style="display: none;"><input id="RoundsInput" placeholder="Rounds..."type="number"/><input id="BetInput" placeholder="Bet..." type="number"><button onclick="LockInBets()"><img id="imagePlay" src="play.png"></button></div>
+        <div id="Bet" style="display: none; margin:auto;justify-content: center; align-items: center;"><div style="width:100%; display: flex; justify-content: center; align-items: center;flex-direction: column;"><label>Rounds</label><input id="RoundsInput" placeholder="Rounds..."type="number"/></div><div style="width:100%; display: flex;justify-content: center; align-items: center;flex-direction: column;"><label>Bet</label><input id="BetInput" placeholder="Bet..." type="number"></div><button style="margin: 5px;" onclick="LockInBets()"><img id="imagePlay" src="play.png"></button></div>
         <span id="MoreMoney" style="height:30px;"></span>
         <!-- *Rozgrywka* -->
         <div id="GameCount" value="1"  style="display:none;">Game #1</div>
