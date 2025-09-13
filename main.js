@@ -28,6 +28,7 @@ const combinations = [
 if(value == BotChoosed){
     wynik.innerHTML = "tie: " + value + " vs. " + BotChoosed; 
     document.body.style.background = "aliceblue";
+    document.getElementById("GameCount").style.color = "aliceblue";
     document.body.style.transition = "0.3s";
     return; 
 }
@@ -39,6 +40,7 @@ if(combinations[chooseableIndex][random] == 1){
     PlayerWinNumber++;
     PlayersWins.innerHTML = PlayerWinNumber.toString();
     document.body.style.background = "rgb(195, 255, 171)";
+    document.getElementById("GameCount").style.color = "rgb(195, 255, 171)";
     document.body.style.transition = "0.3s";
     wynik.innerHTML = "Player Wins: " + value + " vs. " + BotChoosed;
 }
@@ -48,6 +50,7 @@ else{
     BotWinNumber++;
     BotWins.innerHTML = BotWinNumber.toString();
     document.body.style.background = "rgb(255, 138, 138)";
+    document.getElementById("GameCount").style.color = "rgb(255, 138, 138)";
     document.body.style.transition = "0.3s";
     wynik.innerHTML = "Player Lose: " + value + " vs. " + BotChoosed;
 }}
