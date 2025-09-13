@@ -1,11 +1,11 @@
-# Rock Paper Scissors ✂️📄🪨
+# Rock Paper Scissors ✌️✋✊
 
 A simple **Rock Paper Scissors** game written in **JavaScript**.  
 The player competes against the computer in the classic game, where:  
 
-- 🪨 **Rock** crushes ✂️ **Scissors**  
-- ✂️ **Scissors** cut 📄 **Paper**  
-- 📄 **Paper** wraps 🪨 **Rock**  
+- ✊ **Rock** crushes ✌️ **Scissors**  
+- ✌️ **Scissors** cut ✋ **Paper**  
+- ✋ **Paper** wraps ✊ **Rock**  
 
 ---
 
