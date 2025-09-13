@@ -8,8 +8,45 @@
 </head>
 <body>
     <main>
-        <div id="GameCount" value="1">Game #1</div>
-    <div class="chooseUI">
+        <div class="user">
+            <div id="imgHolder"><img src="userPFP.jpg" alt=""></div>
+            <div id="data"><span id="username">Guest</span><div><div style="color:#e5ff00; float:left !important">$</div><span id="credits">100</span></div></div>
+        </div>
+        <!-- *Tutorial* -->
+        <div id="FastGuide" value="1">#Fast Guide</div>
+        <div class="slider">
+            <section style="font-family:'Courier New', Courier, monospace; display:flex;justify-content:space-around; align-items:center; height:50px; width:calc(100% - 10px);  border-radius: 40px 40px 0 0;background:#1a1a1a; padding:5px; color:rgb(233, 233, 233)"><input oninput="slideChange(this.value)" class="range" max="4" min="0" value="0" type="range"> <div id="amount" style="color:aliceblue">1/5</div><button onclick="StartGame()" id="closeSlides" style="display:none"><img src="cross.png"></button></section>
+            <div class="SlideItem" style="display:flex !important">
+                <h1>Your first account!</h1>
+                <p><b>Game is in beta!</b> Your Account is based on LocalStorage so make sure to not change browsers</p>
+                <p>Bottom from your username, you can see how rich you are. Keep gambling, and rock!</p>
+            </div>
+            <div class="SlideItem">
+                <h1>Pick Rounds, and bets</h1>
+                <p>Before every round starts u need to pick how many rounds to play, and how much money u need to spend. Be cautious!</p>
+            </div>
+            <div class="SlideItem">
+                <h1>How to play</h1>
+                <p>The player competes against the computer in the classic game, where:</p>
+<p>(✊) Rock crushes Scissors (✌️)</p>
+<p>(✌️) Scissors cut Paper(✋)</p>
+<p>(✋) Paper wraps Rock (✊)</p>
+            </div>
+            <div class="SlideItem">
+                <h1>How to win</h1>
+                <p>The first player to reach the pre-chosen number of won rounds wins the money in the pot.</p>
+            </div>
+            <div class="SlideItem">
+                <h1>Have fun!</h1>
+                <p>Make sure to not ran out of the money or else your will need to resert progress. Good Luck!</p>
+            </div>
+        </div>
+        <!-- Zakład -->
+        <div id="Bet" style="display: none;"><input id="RoundsInput" placeholder="Rounds..."type="number"/><input id="BetInput" placeholder="Bet..." type="number"><button onclick="LockInBets()"><img id="imagePlay" src="play.png"></button></div>
+        <span id="MoreMoney" style="height:30px;"></span>
+        <!-- *Rozgrywka* -->
+        <div id="GameCount" value="1"  style="display:none;">Game #1</div>
+        <div class="chooseUI" style="display:none;">
         <div class="chooseItem">
         <div class="Choosen"><div id="player">Player's Pick:</div></div>
         <div class="Choosen"><div id="bot">Bot's Pick:</div></div>

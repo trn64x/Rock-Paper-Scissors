@@ -61,7 +61,147 @@ let gameCount = 1;
 for(let i= 0; i < 3; i++){
     let button = document.querySelectorAll(".option")[i];
     button.addEventListener("click",()=>{
+    let credits = document.getElementById("credits");
+    let storagedData = JSON.parse(window.localStorage.getItem("Stats"));
+    let PlayersWins = document.getElementById("playerStats");
+    let BotWins = document.getElementById("botStats");
         gameCount++;
         gameCountValue.innerHTML = `Game #${gameCount}`;
+        if(PlayersWins.innerHTML >= storagedData.Rounds){
+        let betWon = storagedData.Bet;
+        let money = parseInt(credits.innerHTML);
+        storagedData.Credits = money + (parseInt(betWon) * 2);
+        credits.innerHTML = storagedData.Credits;
+        storagedData.Rounds = null;
+        storagedData.Bet = null;
+        storagedData.BotWins = 0;
+        storagedData.PlayersWins = 0;
+    localStorage.setItem("Stats", JSON.stringify(storagedData));
+
+    document.querySelector(".chooseUI").style.display = "none";
+    document.getElementById("GameCount").style.display = "none";
+        StartGame();
+        return
+    }
+        if(BotWins.innerHTML >= storagedData.Rounds){
+        storagedData.Rounds = null;
+        storagedData.Bet = null;
+        storagedData.BotWins = 0;
+        storagedData.PlayersWins = 0;
+    localStorage.setItem("Stats", JSON.stringify(storagedData));
+        if(parseInt(storagedData.Credits) <= 0 && credits.innerHTML <= 0){
+            localStorage.clear("Stats");
+            document.getElementById('wynik').innerHTML = "You have lost all your money!"
+            return
+        }
+    document.querySelector(".chooseUI").style.display = "none";
+    document.getElementById("GameCount").style.display = "none";
+        StartGame();
+        return
+    }
     })
+}
+window.addEventListener("beforeunload",()=> {
+    let PlayersWins = document.getElementById("playerStats");
+    let StatsLocalStorage = JSON.parse(window.localStorage.getItem("Stats"));
+    let BotWins = document.getElementById("botStats");
+    let BotWinNumber = parseInt(BotWins.innerHTML);
+    const stats = {
+        Username: username.innerHTML,
+        Credits: StatsLocalStorage.Credits,
+        Bet: StatsLocalStorage.Bet,
+        Rounds: StatsLocalStorage.Rounds,
+        BotWins: StatsLocalStorage.BotWins,
+        PlayersWins: StatsLocalStorage.PlayersWins
+    }
+    localStorage.setItem('Stats',JSON.stringify(stats));
+})
+window.addEventListener("DOMContentLoaded",()=> {
+    let StatsLocalStorage = JSON.parse(window.localStorage.getItem("Stats"));
+    let username = document.getElementById("username");
+    let credits = document.getElementById("credits");
+    let PlayersWins = document.getElementById("playerStats");
+    let BotWins = document.getElementById("botStats");
+    let rand = Math.floor(Math.random() * 10000);
+    
+    if(!StatsLocalStorage){
+           const stats = {
+        Username: `Guest${rand}`,
+        Rounds: null,
+        Bet: null,
+        Credits: 100,
+        BotWins: 0,
+        PlayersWins: 0
+    }
+    localStorage.setItem('Stats',JSON.stringify(stats));
+    StatsLocalStorage = JSON.parse(window.localStorage.getItem("Stats"));
+    }else{
+        StartGame();
+    }
+    credits.innerHTML = StatsLocalStorage.Credits
+    username.innerHTML = StatsLocalStorage.Username
+    PlayersWins.innerHTML = StatsLocalStorage.PlayersWins;
+    BotWins.innerHTML = StatsLocalStorage.BotWins;
+})
+function slideChange(value){
+    const amount = document.getElementById("amount");
+    const slideItems = document.querySelectorAll(".SlideItem");
+    slideItems.forEach(item => item.style.display = "none");
+    const index = parseInt(value);
+    if(slideItems[index]){
+        slideItems[index].style.display = "flex";
+        amount.innerHTML = `${index + 1}/5`;
+    }
+    if(index == 4){
+        const closeSlides = document.getElementById("closeSlides");
+
+        amount.style.display = "none";
+        closeSlides.style.display = "flex";
+    }
+}
+function StartGame(){
+    let storagedData = JSON.parse(window.localStorage.getItem("Stats"));
+    document.getElementById('MoreMoney').innerHTML = "";
+    document.getElementById("credits").innerHTML = storagedData.Credits;
+    document.getElementById("FastGuide").style.display="none";
+    document.querySelector(".slider").style.display="none";
+    document.getElementById("Bet").style.display="none";
+    
+    if(storagedData.Rounds != null && storagedData.PlayersWins < storagedData.Rounds && storagedData.BotWins < storagedData.Rounds){
+        document.getElementById("GameCount").style.display = "flex";
+        document.querySelector(".chooseUI").style.display = "flex";
+    document.getElementById("playerStats").innerHTML = 0;
+    document.getElementById("botStats").innerHTML = 0;
+    }
+    if(storagedData.Rounds == null){
+        document.getElementById("Bet").style.display = "flex";
+        return
+    }
+}
+function LockInBets(){
+    let RoundsInput = document.getElementById("RoundsInput").value;
+    let BetInput = document.getElementById("BetInput").value;
+    let username = document.getElementById('username');
+    let credits = document.getElementById("credits");
+    let PlayersWins = document.getElementById("playerStats");
+    let BotWins = document.getElementById("botStats");
+    let storagedData = JSON.parse(localStorage.getItem("Stats"));
+    if(parseInt(BetInput) > storagedData.Credits){
+        let moneyAnnouc = document.getElementById('MoreMoney');
+        moneyAnnouc.style.display = "flex";
+        moneyAnnouc.style.color = "red";
+        moneyAnnouc.innerHTML = "Not enough money to bet."
+        return;
+    }
+    const stats = {
+        Username: username.innerHTML,
+        Rounds: RoundsInput,
+        Bet: BetInput,
+        Credits: parseInt(storagedData.Credits) - parseInt(BetInput),
+        BotWins: 0,
+        PlayersWins: 0
+    }
+    
+    localStorage.setItem('Stats',JSON.stringify(stats));
+    StartGame();
 }

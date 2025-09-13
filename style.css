@@ -1,5 +1,5 @@
 body{
-    background-color: aliceblue;
+    background-color: rgb(38, 51, 61);
     margin:0;
     height:100vh;
     display: flex;
@@ -13,7 +13,8 @@ main{
     flex-direction: column;
     width: 100%;
 }
-.chooseUI{
+.chooseUI, .slider{
+    animation: fadeIn 0.7s forwards;
     box-shadow: 0px 5px 15px black;
     display: flex;
     justify-content: start;
@@ -23,6 +24,14 @@ main{
     width:600px;
     height:450px;
     border-radius: 35px;
+}
+@keyframes fadeIn {
+    from{
+        scale:0
+    }
+    to{
+        scale:1
+    }
 }
 .chooseItem{
     margin-top:2px;
@@ -121,7 +130,7 @@ button:hover{
     color:white;
     font-family: Arial, Helvetica, sans-serif;
 }
-#GameCount{
+#GameCount,#FastGuide{
     display: flex;
     justify-content: center;
     min-width:250px;
@@ -134,4 +143,119 @@ button:hover{
     font-family: 600;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color:aliceblue;
+}
+.range{
+    width:75%;
+    margin:10px;
+    accent-color: rgb(89, 255, 89);
+}
+.SlideItem{
+    color:rgb(218, 218, 218);
+    font-family:'Franklin Gothic Light', 'Arial Narrow', Arial, sans-serif;
+    display:none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#closeSlides{
+    width:30px;
+    height:30px;
+    padding:0;
+    border:none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+#closeSlides:hover {
+    background: rgba(255, 255, 255, 0.1); /* albo dowolny kolor */
+}
+#closeSlides img {
+    width:30px;
+    height:30px;
+    object-fit: contain;
+}
+.SlideItem p {
+    margin:5px 20px 0 20px;
+}
+.user{
+    display: flex;
+    align-items: center;
+    padding:0 8px 0 8px;
+    border-radius: 10px;
+    background:#0c0c0c;
+    position: absolute;
+    left:10px;
+    bottom:10px;
+    width:250px;
+    height:100px;
+}
+#imgHolder{
+    padding:0;
+    border:none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    height:75%;
+    width:35%;
+}
+#imgHolder img {
+    border-radius: 5px;
+    width:auto;
+    height:100%;
+    object-fit: contain;
+}
+
+#data{
+    display: flex;
+    flex-direction: column;
+    width:65%;
+    height:40%;
+}
+#credits{
+    color:#e5ff00
+}
+#username{
+    color:aliceblue
+}
+#Bet input{
+    color:white;
+    background-color: #2e2f30;
+    border:1px solid black;
+    border-radius: 10px;
+    padding:5px;
+    height:25px;
+    width:37%
+}
+
+#Bet button{
+    margin:0;
+    padding:0;
+    border:solid 1px black;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    height:40px;
+    width:39px;
+}
+button #imagePlay{
+    height:100%;
+    width:auto;
+    object-fit: contain;
+}
+#Bet{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    width:20%;
+    height:100px;
+    background:#1a1a1a;
+    border-radius:20px;
 }
