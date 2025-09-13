@@ -13,7 +13,7 @@ The player competes against the computer in the classic game, where:
 - Player vs Computer gameplay  
 - Random computer move  
 - Simple browser-based interface  
-- Score tracking (optional)  
+- Score tracking 
 
 ---
 
