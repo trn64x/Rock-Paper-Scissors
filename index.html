@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div id="GameCount" value="1">Game #1</div>
+    <div class="chooseUI">
+        <div class="chooseItem">
+        <div class="Choosen"><div id="player">Player's Pick:</div></div>
+        <div class="Choosen"><div id="bot">Bot's Pick:</div></div>
+        </div>
+        <div class="chooseImage">
+        <div id="playerPick"></div>
+        <div id="botPick"></div>
+        </div>
+        <div class="chooseItem">
+            <div class="Stats"><div id="playerStats">0</div></div>
+            <div id="divide">-</div>
+            <div class="Stats"><div id="botStats">0</div></div>
+        </div>
+        <div class="buttons"><button class="option" onclick="LogicOfGame('Paper')">✋</button><button onclick="LogicOfGame('Rock')" class="option">✊</button><button onclick="LogicOfGame('Scissors')" class="option">✌️</button></div>
+        
+        <div id="wynik">Press Buttons to Start!</div>
+    </div>    
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
