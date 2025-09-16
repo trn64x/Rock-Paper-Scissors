@@ -231,3 +231,24 @@ function LockInBets(){
     localStorage.setItem('Stats',JSON.stringify(stats));
     StartGame();
 }
+function OpenShop(){
+const shopButton = document.getElementById("ShopButton");
+const storeImg = document.getElementById("StoreImg");
+const valueDiv = document.getElementById("value");
+const ContainerShop = document.getElementById("ShopContainer");
+console.log("Clicked but no if")
+if(value.innerHTML == `Store`){
+    console.log("something happens")
+    ContainerShop.style.animation = "1s Opening forwards"
+    ContainerShop.style.display = "flex";
+    value.innerHTML = "Close Store";
+    return;
+}if(value.innerHTML == "Close Store"){
+    ContainerShop.style.animation = "1s Closing forwards"
+    value.innerHTML = "Store";
+    setTimeout(()=>{
+ContainerShop.style.display = "none";
+    },1000)
+return;
+}
+}
