@@ -8,8 +8,31 @@
 </head>
 <body>
     <main>
+        <!-- Store-->
+        <div style="display: none;" id="StoreContainer">
+            <div class="headerStore">
+                <h1>🎭 Customize</h1>
+                </div>
+            <div class="buttonsContainer">
+            <button onclick="changeBorder('red')" class="buttonStore">
+                Red Border
+                <p>Makes your profile picture appear with red border</p>
+            </button>
+            <button onclick="changeBorder('blue')" class="buttonStore">
+                Blue Border
+                <p>Makes your profile picture appear with blue border</p>
+            </button>
+            <button onclick="changeBorder('green')" class="buttonStore">
+                Green Border
+                <p>Makes your profile picture appear with green border</p>
+            </button>
+            
+            </div>
+        </div>
+        <button onclick="openCustom()" class="Store"><img src="store.png" alt="store"><div id="value">Customize</div></button>
+        <!-- User -->
         <div class="user">
-            <div id="imgHolder"><img src="userPFP.jpg" alt=""></div>
+            <div id="imgHolder"><img id="ChangeBorder" style="border:1px solid black;" src="userPFP.jpg" alt=""></div>
             <div id="data"><span id="username">Guest</span><div><div style="color:#e5ff00; float:left !important">$</div><span id="credits">100</span></div></div>
         </div>
         <!-- *Tutorial* -->
@@ -42,7 +65,7 @@
             </div>
         </div>
         <!-- Zakład -->
-        <div id="Bet" style="display: none; margin:auto;justify-content: center; align-items: center;"><div style="width:100%; display: flex; justify-content: center; align-items: center;flex-direction: column;"><label>Rounds</label><input id="RoundsInput" placeholder="Rounds..."type="number"/></div><div style="width:100%; display: flex;justify-content: center; align-items: center;flex-direction: column;"><label>Bet</label><input id="BetInput" placeholder="Bet..." type="number"></div><button style="margin: 5px;" onclick="LockInBets()"><img id="imagePlay" src="play.png"></button></div>
+        <div id="Bet" style="display: none; margin:auto;justify-content: center; align-items: center;"><div style="width:100%; display: flex; justify-content: center; align-items: center;flex-direction: column;"><label>Rounds</label><input id="RoundsInput" placeholder="Rounds..."type="number"/></div><div style="width:100%; display: flex;justify-content: center; align-items: center;flex-direction: column;"><label>Bet</label><input id="BetInput" placeholder="Bet..." type="number"></div><button style="box-shadow: 0; margin: 5px;" onclick="LockInBets()"><img id="imagePlay" src="play.png"></button></div>
         <span id="MoreMoney" style="height:30px;"></span>
         <!-- *Rozgrywka* -->
         <div id="GameCount" value="1"  style="display:none;">Game #1</div>

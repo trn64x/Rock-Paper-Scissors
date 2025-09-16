@@ -146,7 +146,10 @@ window.addEventListener("DOMContentLoaded",()=> {
     let PlayersWins = document.getElementById("playerStats");
     let BotWins = document.getElementById("botStats");
     let rand = Math.floor(Math.random() * 10000);
-    
+    let borderLocalStorage = window.localStorage.getItem("border");
+    if(borderLocalStorage){
+        changeBorder(borderLocalStorage);
+    }
     if(!StatsLocalStorage){
            const stats = {
         Username: `Guest${rand}`,
@@ -230,4 +233,29 @@ function LockInBets(){
     
     localStorage.setItem('Stats',JSON.stringify(stats));
     StartGame();
+}
+function openCustom(){
+    let shopContainer = document.getElementById("StoreContainer");
+    let  CustomizeOpenerValue = document.getElementById("value");
+    if(CustomizeOpenerValue.innerHTML == "Customize"){
+        shopContainer.style.display = "flex";
+        shopContainer.style.animation = "0.4s Opening ease-in-out";
+        CustomizeOpenerValue.innerHTML = "Close Customize";
+        return;
+    }
+    if(CustomizeOpenerValue.innerHTML == "Close Customize"){
+        let delay = 400;
+        shopContainer.style.animation = "0.4s Closing ease-in-out";
+        CustomizeOpenerValue.innerHTML = "Customize";
+        setTimeout(()=>{
+            shopContainer.style.display = "none";
+        }, delay)
+    }
+    
+}
+function changeBorder(color){
+let userImage = document.getElementById("ChangeBorder");
+userImage.style.border = `1px solid ${color}`;
+localStorage.setItem("border", color);
+
 }

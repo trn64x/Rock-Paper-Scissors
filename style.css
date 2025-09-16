@@ -280,3 +280,96 @@ button #imagePlay{
     background:#1a1a1a;
     border-radius:20px;
 }
+.Store{
+    gap:4px;
+    font-size:15px;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color:white;
+    position:absolute;
+    bottom:10px;
+    background:#0c0c0c;
+    right:10px;
+    border:1px solid #363636
+}
+.Store img{
+    height:50%;
+    width:auto;
+    object-fit: contain;
+}
+#StoreContainer{
+    display:flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width:400px;
+    height:500px;
+    position: absolute;
+    background:rgba(0,0,0,0.6);
+    border:1px solid #363636;
+    border-radius:20px;
+    bottom: 90px;
+    right:30px;
+}
+.headerStore{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    width:100%;
+    height:50px;
+    background:#1a1a1a;
+    border-radius:20px 20px 0 0;
+
+}
+.headerStore h1{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing:2px;
+    font-weight: 400;
+    color:white;
+}
+.buttonsContainer{
+    display: flex;
+    width:100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+@keyframes Closing {
+    from{
+        scale:1
+    }
+    to{
+        scale:0.2
+    }
+}
+@keyframes Opening {
+    from{
+        scale:0.2
+    }
+    to{
+        scale:1
+    }
+}
+.buttonStore{
+    background:#272727;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    height:100px;
+    width:95%;
+    margin:15px;
+    padding:15px;
+    border:none;
+    border-radius: none !important;
+}
+.buttonStore h4{
+    height:30%;
+    font-size: 14px;
+}
+.buttonStore p{
+    height:70%;
+    font-size: 12px;
+}
